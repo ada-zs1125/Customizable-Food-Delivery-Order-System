@@ -111,7 +111,7 @@ public class EmployeeController {
     @PostMapping("/status/{status}")
     @ApiOperation("Enable and disable employee accounts")
 
-    //修改类型的函数 Result<>不需要写泛型 但是查询累的需要（例如上边那个page）
+    //修改类型的函数 Result<>不需要写泛型 但是查询类型的需要（例如上边那个page）
     public Result startOrStop(@PathVariable Integer status,Long id){
         log.info("启用禁用员工账号：{},{}",status,id);
         employeeService.startOrStop(status,id);//后绪步骤定义
