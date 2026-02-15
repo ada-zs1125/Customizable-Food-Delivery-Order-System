@@ -30,8 +30,18 @@ public interface OrderMapper {
     @Select("select * from orders where id=#{id}")
     Orders getById(Long id);
 
+    /**
+     * 更改订单信息
+     * @param orders
+     */
+    void update(Orders orders);
 
-    //void update(Orders orders);
+    /**
+     * 根据状态统计订单数量
+     * @param status
+     */
+    @Select("select count(id) from orders where status = #{status}")
+    Integer countStatus(Integer status);
 
 
 
