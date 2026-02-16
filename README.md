@@ -1,177 +1,172 @@
+# 📌 Customizable Food Delivery Order System
 
-# 📌 客制化外卖订单系统
+A **Spring Boot + MyBatis + Redis + MySQL + Nginx + Alibaba Cloud OSS** based front-end and back-end separated food delivery order system, supporting both admin and user clients, with core features like product management, order management, shopping cart, and image upload.
 
-基于 **Spring Boot + MyBatis + Redis + MySQL + Nginx + 阿里云 OSS** 开发的前后端分离客制化外卖订单系统，支持后台管理端与用户端，具备商品管理、订单管理、购物车、图片上传等核心功能。
-
-
-**核心导读：** 本项目以 **后端架构设计** 为主，侧重于高并发场景下的数据缓存策略、RESTful API 规范及多模块解耦实现。
-
+**Core Focus:** This project emphasizes **back-end architecture design**, focusing on data caching strategies under high concurrency, RESTful API standards, and multi-module decoupling.
 
 ---
 
-## 🚀 项目简介
+## 🚀 Project Overview
 
-本项目为一个前后端分离的客制化外卖订单系统，包含：
+This project is a front-end and back-end separated customizable food delivery order system, including:
 
-* 👨‍💼 管理端（后台）
-* 👤 用户端（小程序 / Web）
-* 🖥 后端服务（RESTful API）
-* ☁ 图片存储（阿里云 OSS）
-* ⚡ 缓存优化（Redis）
+* 👨‍💼 Admin client (back-end)
+* 👤 User client (Mini Program / Web)
+* 🖥 Back-end service (RESTful API)
+* ☁ Image storage (Alibaba Cloud OSS)
+* ⚡ Cache optimization (Redis)
 
-项目目标：
+Project goals:
 
-* 熟练掌握 Spring Boot 企业级开发
-* 理解事务管理与数据一致性
-* 掌握缓存与性能优化
-* 具备基础高并发设计思维
+* Gain proficiency in enterprise-level Spring Boot development
+* Understand transaction management and data consistency
+* Master caching and performance optimization
+* Acquire basic high-concurrency design thinking
 
 ---
 
-## 🏗 技术架构
+## 🏗 Technical Architecture
 
-### 后端
+### Back-end
 
 * Spring Boot
 * MyBatis
 * MySQL
 * Redis
 * JWT
-* 阿里云 OSS
+* Alibaba Cloud OSS
 * WebSocket
 
-### 前端
+### Front-end
 
-* Vue（管理端）
-* 小程序 / Web（用户端）
+* Vue (admin client)
+* Mini Program / Web (user client)
 
-### 其他
+### Others
 
-* Nginx 反向代理
-* Maven 构建
-* Git 版本管理
+* Nginx reverse proxy
+* Maven build
+* Git version control
 
 ---
 
-
-
-## 📂 项目结构
+## 📂 Project Structure
 
 ```text
 Sky-Take-Out
-├── sky-take-out                # 后端核心工程 (Maven 多模块)
-│   ├── sky-common              # 公共模块：存放工具类、常量、异常类等
-│   ├── sky-pojo                # 实体类模块：存放 POJO、DTO、VO 等
-│   └── sky-server              # 业务服务模块：存放 Controller、Service、Mapper 及启动类
-├── Front-end                   # 管理端前端代码 (Vue/React)
-│   └── nginx-1.20.2            # 包含前端静态资源及 Nginx 配置文件
-├── mp-weixin                   # 微信小程序端代码 (用户端)
-├── prototype                   # 产品原型 (Axure 或 PDF 文件)
-├── README.md                   # 项目整体说明文档
-├── Mac部署指南.md               # 针对 macOS 环境的 Nginx/MySQL/Redis 部署手册
-└── .gitignore                  # Git 忽略文件配置 (已过滤 .DS_Store 及 target)
-
+├── sky-take-out                # Back-end core project (Maven multi-module)
+│   ├── sky-common              # Common module: utilities, constants, exceptions, etc.
+│   ├── sky-pojo                # Entity module: POJOs, DTOs, VOs, etc.
+│   └── sky-server              # Business service module: Controllers, Services, Mappers, and main application class
+├── Front-end                   # Admin front-end code (Vue/React)
+│   └── nginx-1.20.2            # Contains static front-end resources and Nginx configuration
+├── mp-weixin                   # WeChat Mini Program code (user client)
+├── prototype                   # Product prototype (Axure or PDF files)
+├── README.md                   # Project overview document
+├── Mac_Deployment_Guide.md     # Full deployment guide for macOS with Nginx/MySQL/Redis
+└── .gitignore                  # Git ignore configuration (.DS_Store, target, etc.)
 ```
----
-
-## 模块说明
-
-### 后端模块
-
-| 模块名称       | 功能描述 |
-|----------------|---------|
-| `sky-server`   | 核心后端服务，处理请求、业务逻辑、接口提供、数据库操作 |
-| `sky-common`   | 公共模块，存放工具类、常量、异常处理类等 |
-| `sky-pojo`     | 实体类模块，对应数据库表结构 |
-
-### 前端模块
-
-| 模块名称           | 功能描述 |
-|--------------------|---------|
-| `Front-end`        | 前端 Web 端展示，HTML/CSS/JS 静态页面 + Nginx 配置 |
-| `mp-weixin`        | 微信小程序端，提供移动端下单和管理功能 |
-| `prototype`        | 产品原型文件，设计和交互说明 |
-| `README.md`        | 项目说明文件 |
-| `Mac部署指南.md`   | Mac 系统部署前端、后端和 Nginx 的全流程说明 |
 
 ---
 
-## ⚙ 核心功能
+## Module Description
 
-### 🛠 管理端功能
+### Back-end Modules
 
-* 员工管理
-* 分类管理
-* 菜品管理
-* 套餐管理
-* 订单管理
-* 数据统计
+| Module Name  | Description                                                                             |
+| ------------ | --------------------------------------------------------------------------------------- |
+| `sky-server` | Core back-end service, handling requests, business logic, APIs, and database operations |
+| `sky-common` | Common utilities, constants, and exception handling                                     |
+| `sky-pojo`   | Entity module, corresponding to database table structures                               |
 
-### 👤 用户端功能
+### Front-end Modules
 
-* 浏览商品
-* 加入购物车
-* 提交订单
-* 订单支付（模拟）
-* 订单状态流转
-
----
-
-## 🔥 技术亮点
-### 1️⃣ Redis 缓存优化
-
-* 对菜品数据进行缓存
-* 减少数据库压力
-* 提高接口响应速度
+| Module Name  | Description                                                           |
+| ------------ | --------------------------------------------------------------------- |
+| `Front-end`  | Web front-end display, HTML/CSS/JS static pages + Nginx configuration |
+| `mp-weixin`  | WeChat Mini Program client, providing mobile ordering and management  |
+| `prototype`  | Product prototype files, design and interaction specification         |
+| `README.md`  | Project description document                                          |
+| `Mac_Deployment_Guide.md` | Full macOS deployment guide for front-end, back-end, and Nginx        |
 
 ---
 
-### 2️⃣ 事务管理
+## ⚙ Core Features
 
-* 下单过程使用事务
-* 保证订单数据一致性
-* 防止部分提交问题
+### 🛠 Admin Client Features
 
----
+* Employee management
+* Category management
+* Dish management
+* Set meal management
+* Order management
+* Data statistics
 
-### 3️⃣ 图片上传（阿里云 OSS）
+### 👤 User Client Features
 
-* 使用 OSS 进行图片存储
-* 后端返回访问路径
-* 实现文件服务器与业务服务器分离
-
----
-
-### 4️⃣ Nginx 反向代理
-
-* 统一入口
-* 解决跨域问题
-* 提高静态资源访问效率
+* Browse products
+* Add to shopping cart
+* Place orders
+* Order payment (simulated)
+* Order status flow
 
 ---
 
-### 5️⃣ 工程化设计
+## 🔥 Technical Highlights
 
-* 分模块开发
-* 统一返回结果封装
-* 全局异常处理
-* 统一日志规范
+### 1️⃣ Redis Cache Optimization
 
-
-### 5️⃣ 引入JWT
-
-* 解决HTTP协议无状态的缺点
-* 实现用户一段时间内无需重复登录及身份验证功能
-* 对Signature进行处理
-* 增强重要信息的安全性。
-
-
+* Cache dish data
+* Reduce database pressure
+* Improve API response speed
 
 ---
 
-## 🗄 数据库设计
+### 2️⃣ Transaction Management
 
-主要表：
+* Use transactions during order placement
+* Ensure order data consistency
+* Prevent partial commits
+
+---
+
+### 3️⃣ Image Upload (Alibaba Cloud OSS)
+
+* Use OSS for image storage
+* Back-end returns access URLs
+* Separate file server from business server
+
+---
+
+### 4️⃣ Nginx Reverse Proxy
+
+* Unified entry point
+* Solve cross-origin issues
+* Improve static resource access performance
+
+---
+
+### 5️⃣ Engineering Design
+
+* Modular development
+* Unified response format
+* Global exception handling
+* Standardized logging
+
+---
+
+### 5️⃣ JWT Integration
+
+* Solve stateless HTTP limitations
+* Enable users to stay logged in for a period without repeated authentication
+* Handle signature processing
+* Enhance security for critical information
+
+---
+
+## 🗄 Database Design
+
+Main tables:
 
 * employee
 * category
@@ -181,10 +176,9 @@ Sky-Take-Out
 * order_detail
 * shopping_cart
 
-
 ---
 
-## 🧪 环境要求
+## 🧪 Environment Requirements
 
 * JDK 8+
 * Maven 3.6+
@@ -194,28 +188,30 @@ Sky-Take-Out
 * Node.js 16+
 
 ---
-## 🍔 Mac 本地部署完整指南
 
-> 适用于 macOS（Apple Silicon / Intel 均可）
-> 技术栈：Spring Boot + MySQL + Redis + Nginx---
+## 🍔 Full Mac Deployment Guide
 
-请参照：Mac部署指南.md
+> Suitable for macOS (Apple Silicon / Intel)
+> Stack: Spring Boot + MySQL + Redis + Nginx
 
-## 📈 后续优化方向
-
-* 引入分布式锁防止库存超卖
-* 实现秒杀场景优化
-* 增加接口限流
-* 使用消息队列削峰
-* 分库分表设计
-* Docker 部署
+Please refer to: `Mac_Deployment_Guide.md`
 
 ---
 
-## 👨‍💻 作者
+## 📈 Future Optimization
 
-个人练习项目，用于提升 Java 后端工程能力与高并发设计思维。
+* Introduce distributed locks to prevent overselling
+* Optimize for flash sale scenarios
+* Add API rate limiting
+* Use message queues to smooth traffic
+* Implement database sharding
+* Docker deployment
 
 ---
 
+## 👨‍💻 Author
+
+Personal practice project to improve Java back-end skills and high-concurrency design thinking.
+
+---
 
